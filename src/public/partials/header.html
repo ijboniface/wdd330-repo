@@ -5,6 +5,20 @@
     </a>
 </div>
 
+<form class="search-form" action="/product_listing/" method="GET" role="search">
+    <label class="visually-hidden" for="product-search">
+        Search for products
+    </label>
+    <input
+        type="search"
+        id="product-search"
+        name="category"
+        placeholder="Search products..."
+        required
+    />
+    <button type="submit">Search</button>
+</form>
+
 <div class="cart">
     <a href="/cart/" aria-label="Shopping cart">
         <img src="/images/cart.svg" alt="Shopping cart" />

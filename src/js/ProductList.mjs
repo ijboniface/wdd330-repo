@@ -30,11 +30,17 @@ export default class ProductList {
     this.renderList(list);
   }
 
-  renderList(list) {
-    renderListWithTemplate(
-      productCardTemplate,
-      this.listElement,
-      list,
-    );
+ renderList(list) {
+  if (!list || list.length === 0) {
+    this.listElement.innerHTML =
+      "<li>No products found. Try another search.</li>";
+    return;
+  }
+
+  renderListWithTemplate(
+    productCardTemplate,
+    this.listElement,
+    list,
+  );
   }
 }

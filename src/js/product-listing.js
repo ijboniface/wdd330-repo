@@ -1,4 +1,4 @@
-import ProductData from "./ProductData.mjs";
+﻿import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 import { getParam, loadHeaderFooter } from "./utils.mjs";
 
@@ -9,23 +9,26 @@ const dataSource = new ProductData();
 const listElement = document.querySelector(".product-list");
 const categoryTitle = document.querySelector("#category-title");
 
-if (category && listElement) {
-  const formattedCategory = category
-    .replaceAll("-", " ")
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+if (category && listElement && categoryTitle) {
+  const searchTerm = category.trim();
 
-  categoryTitle.textContent = formattedCategory;
+  if (searchTerm) {
+    categoryTitle.textContent = `Search results for "${searchTerm}"`;
 
-  const productList = new ProductList(
-    category,
-    dataSource,
-    listElement,
-  );
+    const productList = new ProductList(
+      searchTerm,
+      dataSource,
+      listElement,
+    );
 
-  productList.init().catch((error) => {
+    productList.init().catch((error) => {
 
-    listElement.innerHTML = "<li>Unable to load products. Please try again.</li>";
-  });
+      listElement.innerHTML =
+        "<li>Unable to load products. Please try again.</li>";
+    });
+  } else {
+    categoryTitle.textContent = "Please enter a search term.";
+  }
 } else if (categoryTitle) {
-  categoryTitle.textContent = "Category not specified";
+  categoryTitle.textContent = "Search for a product";
 }
