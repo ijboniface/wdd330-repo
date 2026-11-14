@@ -1,14 +1,15 @@
 :root {
   --font-body: Arial, Helvetica, sans-serif;
   --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  /* colors */
+
+  /* Colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
   --tertiary-color: #8a470c;
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
 
-  /* sizes */
+  /* Sizes */
   --font-base: 18px;
   --small-font: 0.8em;
   --large-font: 1.2em;
@@ -33,8 +34,57 @@ img {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem;
 }
+
+/* Product search */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  max-width: 450px;
+  margin: 0 1rem;
+}
+
+.search-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.search-form button {
+  padding: 0.65rem 1rem;
+  margin: 0;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.search-form input:focus-visible,
+.search-form button:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* End product search */
 
 p {
   padding: 0.75rem;
@@ -83,12 +133,10 @@ p {
   font-size: var(--small-font);
   width: 110px;
   height: 80px;
-
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   box-shadow: 1px 1px 4px var(--light-grey);
   justify-content: center;
-  align-items: center;
   line-height: 1;
 }
 
@@ -98,11 +146,11 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
-/* utility classes */
+/* Utility classes */
 .highlight {
   color: var(--tertiary-color);
 }
@@ -217,12 +265,11 @@ button {
   display: grid;
   grid-template-columns: 25% auto 15%;
   font-size: var(--small-font);
-  /* max-height: 120px; */
   align-items: center;
 }
 
 .cart-card__image {
-  grid-row: 1/3;
+  grid-row: 1 / 3;
   grid-column: 1;
 }
 
@@ -355,3 +402,29 @@ footer {
 .category-icon {
   font-size: 3.5rem;
 }
+
+/* Responsive product search */
+@media screen and (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .search-form {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+    margin: 0.75rem 0 0;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .logo img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* End responsive product search */
