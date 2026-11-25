@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sleep Outside | Register</title>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/registration.js" type="module"></script>
+</head>
+
+<body>
+  <header class="divider" id="main-header"></header>
+
+  <main class="divider">
+    <section class="register-page">
+      <h1>Create Your Account</h1>
+
+      <p class="register-intro">
+        Join the Sleep Outside community and get ready for your next adventure.
+      </p>
+
+      <form id="register-form" action="#" method="post">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          autocomplete="given-name"
+          minlength="2"
+          maxlength="50"
+          required
+        />
+
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          autocomplete="family-name"
+          minlength="2"
+          maxlength="50"
+          required
+        />
+
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="email"
+          maxlength="100"
+          required
+        />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        />
+
+        <button type="submit">Create Account</button>
+
+        <p id="register-message" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="register-back">
+        Already exploring?
+        <a href="/">Return to Sleep Outside</a>
+      </p>
+    </section>
+  </main>
+
+  <footer id="main-footer"></footer>
+</body>
+
+</html>
