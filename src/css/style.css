@@ -506,3 +506,152 @@ footer {
     padding: 1.5rem;
   }
 }
+.register-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.72);
+  animation: registerFadeIn 0.3s ease-in-out;
+}
+
+.register-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  animation: registerSlideUp 0.35s ease-out;
+}
+
+.register-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--dark-grey);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.register-modal__close:hover {
+  background: #eeeeee;
+}
+
+.register-modal__eyebrow {
+  margin-bottom: 10px;
+  color: var(--tertiary-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.8rem;
+}
+
+.register-modal__content h2 {
+  margin: 10px 0 18px;
+  color: var(--secondary-color);
+  font-size: 2rem;
+}
+
+.register-modal__content p {
+  line-height: 1.6;
+}
+
+.register-modal__highlight {
+  margin: 20px 0;
+  padding: 14px;
+  border-left: 4px solid var(--primary-color);
+  background: #fff5eb;
+  font-weight: bold;
+}
+
+.register-modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.register-modal__register {
+  display: block;
+  padding: 14px 20px;
+  border-radius: 5px;
+  background: var(--secondary-color);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.register-modal__register:hover {
+  background: var(--tertiary-color);
+}
+
+.register-modal__dismiss {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  background: #ffffff;
+  color: var(--dark-grey);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.register-modal__dismiss:hover {
+  background: #eeeeee;
+}
+
+.register-modal button:focus-visible,
+.register-modal a:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+@keyframes registerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes registerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .register-modal__content {
+    padding: 35px 20px 25px;
+  }
+
+  .register-modal__content h2 {
+    font-size: 1.6rem;
+  }
+}
+
