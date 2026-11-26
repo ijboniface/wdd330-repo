@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W05 Learning Activity | Dataset</title>
+
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #items {
+      padding: 0;
+      list-style: none;
+    }
+
+    #items li {
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #items li[data-color="yellow"] {
+      background-color: yellow;
+      color: black;
+    }
+
+    #items li[data-color="orange"] {
+      background-color: orange;
+      color: black;
+    }
+
+    #items li[data-color="blue"] {
+      background-color: blue;
+      color: white;
+    }
+
+    #items li:focus {
+      outline: 2px solid #333;
+    }
+
+    #details {
+      margin-top: 25px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dataset Learning Activity</h1>
+
+  <p>Click an item to display its details.</p>
+
+  <ul id="items">
+    <li data-name="banana" data-category="fruit" data-color="yellow" tabindex="0">
+      Banana
+    </li>
+
+    <li data-name="carrot" data-category="vegetable" data-color="orange" tabindex="0">
+      Carrot
+    </li>
+
+    <li data-name="blueberry" data-category="fruit" data-color="blue" tabindex="0">
+      Blueberry
+    </li>
+  </ul>
+
+  <div id="details" aria-live="polite">
+    <p>Select an item to see its details.</p>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('#items li');
+    const details = document.querySelector('#details');
+
+    items.forEach(item => {
+      console.log('Name:', item.dataset.name);
+      console.log('Category:', item.dataset.category);
+      console.log('Color:', item.dataset.color);
+
+      function showDetails() {
+        details.innerHTML = `
+          <h2>Item Details</h2>
+          <p>Name: ${item.dataset.name}</p>
+          <p>Category: ${item.dataset.category}</p>
+          <p>Color: ${item.dataset.color}</p>
+        `;
+      }
+
+      item.addEventListener('click', showDetails);
+
+      item.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          showDetails();
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+
+
